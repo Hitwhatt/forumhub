@@ -1,0 +1,44 @@
+package com.aluracursos.forumhub.model;
+
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "topicos")
+public class Topico {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String titulo;
+    private String mensagem;
+    private LocalDateTime dataCriacao;
+    private String status;
+    private String autor;
+    private String curso;
+
+    public Topico() {}
+
+    public Topico(String titulo, String mensagem, String autor, String curso) {
+        this.titulo = titulo;
+        this.mensagem = mensagem;
+        this.autor = autor;
+        this.curso = curso;
+        this.dataCriacao = LocalDateTime.now();
+        this.status = "ABERTO";
+    }
+
+    public Long getId() { return id; }
+    public String getTitulo() { return titulo; }
+    public void setTitulo(String titulo) { this.titulo = titulo; }
+    public String getMensagem() { return mensagem; }
+    public void setMensagem(String mensagem) { this.mensagem = mensagem; }
+    public LocalDateTime getDataCriacao() { return dataCriacao; }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+    public String getAutor() { return autor; }
+    public void setAutor(String autor) { this.autor = autor; }
+    public String getCurso() { return curso; }
+    public void setCurso(String curso) { this.curso = curso; }
+}
